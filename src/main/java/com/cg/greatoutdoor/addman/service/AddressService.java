@@ -10,13 +10,15 @@ import com.cg.greatoutdoor.addman.model.AddressModel;
 import com.cg.greatoutdoor.addman.repository.AddressRepository;
 
 @Service
-public class AddressService {
+public class AddressService implements AddressServiceInterface {
+	
 	@Autowired
 	private AddressRepository addressRepository;
 
 	public void addAddress(AddressModel model) {
 
 		Address address = new Address();
+		address.setRetailerId(model.getRetailerId());
 		address.setAddline(model.getAddline());
 		address.setCity(model.getCity());
 		address.setPincode(model.getPincode());
@@ -28,16 +30,17 @@ public class AddressService {
 
 		addressRepository.deleteById(addid);
 	}
+	
+	public List<Address> getAll(Long retailerId) {
 
-	public List<Address> getAll() {
-
-		return addressRepository.findAll();
+		return addressRepository.getAll(retailerId);
 	}
 
 	public void updateAddress(AddressModel model, Long addid) {
 		
 		Address address = addressRepository.findById(addid).get();
 		
+		address.setRetailerId(model.getRetailerId());
 		address.setAddline(model.getAddline());
 		address.setCity(model.getCity());
 		address.setPincode(model.getPincode());

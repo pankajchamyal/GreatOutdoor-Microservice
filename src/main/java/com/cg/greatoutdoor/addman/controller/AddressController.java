@@ -31,9 +31,9 @@ public class AddressController {
 		addressService.deleteAddress(addid);
 	}
 	
-	@GetMapping("/address/all")
-	public List<Address> getAddress() {
-		return addressService.getAll();
+	@GetMapping("/address/all/{retailerId}")
+	public List<Address> getAddress(@PathVariable Long retailerId) {
+		return addressService.getAll(retailerId);
 	}
 	
 	@GetMapping("/address/{addid}")

@@ -2,12 +2,19 @@
 
 public class AddressModel {
 	
+	private Long retailerId;
 	private String addline;
 	private String city;
 	private String state;
 	private Long pincode;
 	
 	
+	public Long getRetailerId() {
+		return retailerId;
+	}
+	public void setRetailerId(Long retailerId) {
+		this.retailerId = retailerId;
+	}
 	public String getAddline() {
 		return addline;
 	}

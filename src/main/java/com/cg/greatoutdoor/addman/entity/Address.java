@@ -14,6 +14,7 @@ public class Address {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long addid;
+	private Long retailerId;
 	private String addline;
 	private String city;
 	private String state;
@@ -25,6 +26,12 @@ public class Address {
 	}
 	public void setAddid(Long addid) {
 		this.addid = addid;
+	}
+	public Long getRetailerId() {
+		return retailerId;
+	}
+	public void setRetailerId(Long retailerId) {
+		this.retailerId = retailerId;
 	}
 	public String getAddline() {
 		return addline;
